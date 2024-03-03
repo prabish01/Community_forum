@@ -1,5 +1,7 @@
 import React from "react";
 import { Icons } from "./Icons";
+import Link from "next/link";
+import UserAuthForm from "./UserAuthForm";
 
 export const Signin = () => {
   return (
@@ -7,7 +9,7 @@ export const Signin = () => {
       className="container w-full space-y-6 mx-auto flex flex-col
      justify-center sm:w-[500px]"
     >
-      <div className="flex flex-col items-center space-y-2 text-center align-middle justify-center">
+      <div className="flex flex-col gap-2 items-center space-y-2 text-center align-middle justify-center">
         <div className="text-orange-400 mx-auto h-8 w-8 text-lg">
           <Icons.Nav_icon className="" />
         </div>
@@ -18,6 +20,18 @@ export const Signin = () => {
         </p>
 
         {/* signin form */}
+
+        <UserAuthForm />
+
+        <p className="pt-1 text-center text-sm text-slate-500">New to Community Forum?{""}</p>
+        <Link
+          href={"/sign-up"}
+          className="
+        text-sm text-slate-400 hover:text-slate-600 underline 
+        underline-offset-4"
+        >
+          Sign up
+        </Link>
       </div>
     </div>
   );
