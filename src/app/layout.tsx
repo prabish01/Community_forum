@@ -1,4 +1,5 @@
 import { Navbar } from "@/components/Navbar";
+// import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 import { Open_Sans } from "next/font/google";
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-screen  pt-5 bg-slate-50">
         <Navbar />
         <div className="contianer max-w-7xl mx-auto h-full pt-12">{children}</div>
+        {/* <Toaster/> */}
       </body>
     </html>
   );
