@@ -1,7 +1,8 @@
 import React from "react";
-import { LucideProps } from "lucide-react";
+import { LucideProps, User } from "lucide-react";
 
 export const Icons = {
+  user:User,
   Nav_icon: (props: LucideProps) => (
     <svg {...props} xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-boxes">
       <path d="M2.97 12.92A2 2 0 0 0 2 14.63v3.24a2 2 0 0 0 .97 1.71l3 1.8a2 2 0 0 0 2.06 0L12 19v-5.5l-5-3-4.03 2.42Z" />

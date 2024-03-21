@@ -1,11 +1,14 @@
+// "use client";
+
 import Link from "next/link";
 import { Icons } from "./Icons";
-import { Button, buttonVariants } from "./ui/Button";
+import { Button } from "./ui/Button";
 // import { Session } from "inspector";
 // import { get } from "http";
 import { getAuthSession } from "@/lib/auth";
+import UserAccountNav from "./UserAccountNav";
 
-export const Navbar = async () => {
+ const Navbar = async () => {
   const session = await getAuthSession();
   return (
     <div className="top-0 inset-x-0 h-fit border-b bg-zinc-100 border-zinc-300 py-2 ">
@@ -17,14 +20,12 @@ export const Navbar = async () => {
         </Link>
         {/* loginBtn */}
 
-        {/* <Link href={"/sign-in"}>
-          <Button className="bg-orange-400 hover:bg-orange-500  ">Sign in</Button>
-        </Link> */}
 
         {/* searchbar */}
 
         {session?.user ? (
-          <>you are logged in</>
+          // <p>you are logged in</p>
+          <UserAccountNav user={session.user} />
         ) : (
           <Link href={"/sign-in"}>
             <Button className="bg-orange-400 hover:bg-orange-500 ">Sign in</Button>
@@ -34,3 +35,5 @@ export const Navbar = async () => {
     </div>
   );
 };
+
+export default Navbar
