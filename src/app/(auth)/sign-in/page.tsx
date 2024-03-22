@@ -1,5 +1,6 @@
 import { Signin } from "@/components/Signin";
 import { Button } from "@/components/ui/Button";
+import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { FC } from "react";
@@ -18,7 +19,10 @@ const page: FC = () => {
     <div className="main">
       <div className="child">
         <Link href={"/"}>
-          <Button>Home</Button>
+          <Button variant="ghost">
+            <ChevronLeft />
+            Home
+          </Button>
         </Link>
         <Signin />
       </div>

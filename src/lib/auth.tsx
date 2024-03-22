@@ -2,6 +2,7 @@ import { PrismaClient } from "@prisma/client";
 import { NextAuthOptions, getServerSession } from "next-auth";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import GoogleProvider from "next-auth/providers/google";
+import FacebookProvider from "next-auth/providers/facebook";
 import { db } from "./db";
 import { nanoid } from "nanoid";
 
@@ -17,6 +18,10 @@ export const authOptn: NextAuthOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+    }),
+    FacebookProvider({
+      clientId: process.env.FACEBOOK_CLIENT_ID!,
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET!,
     }),
   ],
   callbacks: {
@@ -64,6 +69,6 @@ export const authOptn: NextAuthOptions = {
       return "/";
     },
   },
-}
+};
 
-export const getAuthSession = () => getServerSession(authOptn)
+export const getAuthSession = () => getServerSession(authOptn);

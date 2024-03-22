@@ -5,10 +5,7 @@ import UserAuthForm from "./UserAuthForm";
 
 export const Signin = () => {
   return (
-    <div
-      className="container w-full mx-auto flex flex-col
-     justify-center sm:w-[500px]"
-    >
+    <div className="container w-full mx-auto flex flex-col justify-center sm:w-[500px]">
       <div className="flex flex-col gap-2 items-center text-center align-middle justify-center">
         <div className="text-orange-400 mx-auto h-8 w-8 text-lg">
           <Icons.Nav_icon className="" />
