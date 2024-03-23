@@ -27,13 +27,16 @@ const UserAccountNav: FC<UserAccountNavProps> = ({ user }) => {
 
       <DropdownMenuContent className="bg-white shadow-md " align="end">
         <div className="flex items-center justify-start gap-2 p-2">
-          <div className="flex flex-col px-5 space-y-1  leading-none">
-            {user.name && <p className=" font-medium">{user.name}</p>}
-            {user.email && <p className=" w-[-200px] truncate text-sm text-zinc-700">{user.email}</p>}
+          <div className="flex flex-col px-1.2 space-y-3  leading-none">
+            <div className="flex gap-2 items-center">
+              <UserAvatar className="" user={user} />
+              {user.name && <p className=" font-medium">{user.name}</p>}
+            </div>
+            {user.email && <p className=" mt-5 w-[-200px] truncate text-sm text-zinc-700">{user.email}</p>}
           </div>
         </div>
-        <DropdownMenuSeparator />
 
+        <DropdownMenuSeparator className="mx-2 bg-slate-300" />
         <DropdownMenuItem>
           <Link href={"/"}>Feed</Link>
         </DropdownMenuItem>
@@ -47,7 +50,7 @@ const UserAccountNav: FC<UserAccountNavProps> = ({ user }) => {
           <Link href={"/"}>Feed</Link>
         </DropdownMenuItem> */}
 
-        <DropdownMenuSeparator />
+        <DropdownMenuSeparator className="mx-2 bg-slate-300" />
         <DropdownMenuItem
           onSelect={(event) => {
             event.preventDefault();
