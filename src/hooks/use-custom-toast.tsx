@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/Button";
 import { toast } from "@/components/ui/use-toast";
 import Link from "next/link";
 
-export const useCustomToasts = () => {
+export const useCustomToast = () => {
   const loginToast = () => {
     const { dismiss } = toast({
       title: "Login required.",

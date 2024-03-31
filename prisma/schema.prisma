@@ -92,7 +92,7 @@ model Post{
   community   Community @relation(fields: [communityId],references: [id])
   communityId String
 
-  auhtor   User @relation(fields: [authorId],references: [id])
+  author   User @relation(fields: [authorId],references: [id])
   authorId String
 
 

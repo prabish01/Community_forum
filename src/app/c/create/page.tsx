@@ -7,13 +7,13 @@ import { useMutation } from "@tanstack/react-query";
 import React, { useState } from "react";
 import axios, { AxiosError } from "axios";
 import { CreateCommunityPayload } from "@/lib/validators/community";
-import { useCustomToasts } from "@/hooks/use-custom-toast";
+import { useCustomToast } from "@/hooks/use-custom-toast";
 import { toast } from "@/components/ui/use-toast";
 
 const Page = () => {
   const [input, setInput] = useState<string>("");
   const router = useRouter();
-  const { loginToast } = useCustomToasts();
+  const { loginToast } = useCustomToast();
 
   const { mutate: Create_Community, isLoading } = useMutation({
     mutationFn: async () => {

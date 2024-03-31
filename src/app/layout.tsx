@@ -22,7 +22,7 @@ export default function RootLayout({ children, authModal }: { children: React.Re
         {/* @ts-expect-error server component */}
         <Navbar />
         {authModal}
-        <div className="contianer max-w-7xl mx-auto h-full pt-12">{children}</div>
+        <div className="container max-w-7xl mx-auto h-full pt-12">{children}</div>
         <Toaster/>
         </Providers>
       </body>
