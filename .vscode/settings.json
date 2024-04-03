@@ -1,7 +1,7 @@
 {
   "typescript.tsdk": "node_modules\\typescript\\lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
-  "cSpell.words": ["Lucide", "Navicon"],
+  "cSpell.words": ["autosize", "editorjs", "hookform", "Lucide", "Navicon", "tanstack", "uploadthing"],
   "WillLuke.nextjs.addTypesOnSave": true,
   "WillLuke.nextjs.hasPrompted": true
 }

@@ -1,11 +1,14 @@
 import { getAuthSession } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { notFound } from "next/navigation";
-import React from "react";
+import React, { ReactNode } from "react";
 import { format } from "date-fns";
 import SubscribeLeaveToggle from "@/components/SubscribeLeaveToggle";
+import Link from "next/link";
+import { Button } from "@/components/ui/Button";
+import { PencilIcon } from "lucide-react";
 
-const Layout = async ({ children, params: { slug } }: { children: React.ReactNode; params: { slug: string } }) => {
+const Layout = async ({ children, params: { slug } }: { children: ReactNode; params: { slug: string } }) => {
   const session = await getAuthSession();
   const community = await db.community.findFirst({
     where: {
@@ -75,9 +78,12 @@ const Layout = async ({ children, params: { slug } }: { children: React.ReactNod
                   <div className="text-gray-900">{memberCount}</div>
                 </dd>
               </div>
-              {community.creatorId !== session?.user.id ? (
-                <SubscribeLeaveToggle isSubscribed={isSubscribed} communityId={ community.id } communityName={community.name} />
-              ):null}
+              {community.creatorId !== session?.user?.id ? <SubscribeLeaveToggle isSubscribed={isSubscribed} communityId={community.id} communityName={community.name} /> : null}
+              <Link href={`c/${slug}/submit`}>
+                <Button variant="outline" className="w-full rounded-xl">
+                  Create Post <PencilIcon className="h-4 w-4 ml-4" />
+                </Button>
+              </Link>
             </dl>
           </div>
         </div>
