@@ -1,4 +1,5 @@
 import CreateCommunityPost from "@/components/CreateCommunityPost";
+import Postfeed from "@/components/Postfeed";
 import { INFINITE_SCROLL_PAGINATION_RESULT } from "@/config";
 import { getAuthSession } from "@/lib/auth";
 import { db } from "@/lib/db";
@@ -25,7 +26,8 @@ const Page = async ({ params }: PageProps) => {
           comments: true,
           community: true,
         },
-        take: INFINITE_SCROLL_PAGINATION_RESULT,
+        // take: INFINITE_SCROLL_PAGINATION_RESULT,
+        take: 10,
       },
     },
   });
@@ -38,7 +40,8 @@ const Page = async ({ params }: PageProps) => {
     <div className="container">
       <h1 className="font-bold text-2xl  text-slate-7 00">c/{community.name}</h1>
       <div className="post">
-        <CreateCommunityPost session={ session} />
+        <CreateCommunityPost session={session} />
+        <Postfeed initialPosts={community.posts} communityName={community.name} />
       </div>
     </div>
   );

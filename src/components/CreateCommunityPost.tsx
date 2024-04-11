@@ -15,7 +15,7 @@ const CreateCommunityPost = ({ session }: CreateCommunityPostProps) => {
   const router = useRouter();
   const pathname = usePathname();
   return (
-    <div className=" bg-white rounded-md shadow-lg">
+    <div className=" bg-white rounded-md shadow-lg mb-5">
       <div className=" h-full sm:flex sm:justify-between gap-6 px-6 py-4">
         <div className="relative">
           <UserAvatar

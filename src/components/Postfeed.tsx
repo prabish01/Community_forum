@@ -1,3 +1,5 @@
+"use client";
+
 import { INFINITE_SCROLL_PAGINATION_RESULT } from "@/config";
 import { ExtendedPost } from "@/types/db.d";
 import { useIntersection } from "@mantine/hooks";
@@ -5,6 +7,7 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useSession } from "next-auth/react";
 import React, { useRef } from "react";
+import Post from "./Post";
 
 interface PostfeedProps {
   initialPosts: ExtendedPost[];
@@ -39,7 +42,7 @@ const Postfeed = ({ initialPosts, communityName }: PostfeedProps) => {
   const posts = data?.pages.flatMap((page) => page) ?? initialPosts;
 
   return (
-    <ul>
+    <ul className="flex flex-col col-span-2 space-y-6">
       {posts.map((post, index) => {
         const votesAmt = post.votes.reduce((acc, vote) => {
           if (vote.type === "UP") {
@@ -54,7 +57,13 @@ const Postfeed = ({ initialPosts, communityName }: PostfeedProps) => {
         const currentVote = post.votes.find((vote) => vote.userId === session?.user.id);
 
         if (index === posts.length - 1) {
-          return <li key={post.id} ref={ref}></li>;
+          return (
+            <li key={post.id} ref={ref}>
+              <Post commentAmt={post.comments.length} post={post} communityName={post.community.name} votesAmt={votesAmt} currentVote={currentVote} />
+            </li>
+          );
+        } else {
+          return <Post commentAmt={post.comments.length} post={post} communityName={post.community.name} votesAmt={votesAmt} currentVote={currentVote} />;
         }
       })}
     </ul>
