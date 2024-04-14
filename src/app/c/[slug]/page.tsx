@@ -1,5 +1,5 @@
 import CreateCommunityPost from "@/components/CreateCommunityPost";
-import Postfeed from "@/components/Postfeed";
+import Postfeed from "@/components/PostFeed";
 import { INFINITE_SCROLL_PAGINATION_RESULT } from "@/config";
 import { getAuthSession } from "@/lib/auth";
 import { db } from "@/lib/db";
@@ -26,8 +26,11 @@ const Page = async ({ params }: PageProps) => {
           comments: true,
           community: true,
         },
-        // take: INFINITE_SCROLL_PAGINATION_RESULT,
-        take: 10,
+        orderBy: {
+          createdAt: "desc",
+        },
+        take: INFINITE_SCROLL_PAGINATION_RESULT,
+        // take: 10,
       },
     },
   });

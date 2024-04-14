@@ -1,5 +1,6 @@
 import { getAuthSession } from "@/lib/auth";
 import { db } from "@/lib/db";
+import { communitySubscriptionValidator } from "@/lib/validators/community";
 import { PostValidator } from "@/lib/validators/post";
 import { z } from "zod";
 
@@ -12,26 +13,26 @@ export async function POST(req: Request) {
     const body = await req.json();
     const { communityId, title, content } = PostValidator.parse(body);
 
-    const subscriptionExists = await db.subscription.findFirst({
+    const subscripitonExists = await db.subscription.findFirst({
       where: {
         communityId,
         userId: session.user.id,
       },
     });
 
-    if (!subscriptionExists) {
-      return new Response("Subscribe to post", { status: 400 });
+    if (!subscripitonExists) {
+      return new Response("Subscribe to post in this community", { status: 400 });
     }
 
     await db.post.create({
       data: {
+        communityId,
         title,
         content,
-            authorId: session.user.id,
-        communityId
+        authorId: session.user.id,
       },
     });
-    return new Response('ok');
+    return new Response("OK");
   } catch (error) {
     if (error instanceof z.ZodError) {
       return new Response("Invalid POST request data passes", { status: 422 });

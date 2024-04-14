@@ -51,6 +51,7 @@ const SubscribeLeaveToggle = ({ communityId, communityName, isSubscribed }: Subs
       });
     },
   });
+  
   const { mutate: unsubscribe, isLoading: isUnsubLoading } = useMutation({
     mutationFn: async () => {
       const payload: SubscribeToCommunityPayload = {
