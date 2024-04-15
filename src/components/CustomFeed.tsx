@@ -4,8 +4,6 @@ import React from "react";
 import { getAuthSession } from "@/lib/auth";
 import PostFeed from "@/components/PostFeed";
 
-
-
 const CustomFeed = async () => {
   const session = await getAuthSession();
 
