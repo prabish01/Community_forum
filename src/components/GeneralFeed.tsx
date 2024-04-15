@@ -1,8 +1,7 @@
 import { INFINITE_SCROLL_PAGINATION_RESULT } from '@/config';
 import { db } from '@/lib/db';
 import React from 'react'
-import PostFeed from './PostFeed';
-
+import PostFeed from "@/components/PostFeed";
 const GeneralFeed = async () => {
 
 
