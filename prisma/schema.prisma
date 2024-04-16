@@ -145,7 +145,7 @@ model Vote{
   postId          String 
   type            VoteType
 
-  @@id([postId,userId])
+  @@id([userId,postId])
 
 }
 
